@@ -1,0 +1,8 @@
+[1] http://jmcauley.ucsd.edu/cse255/projects/fa15/018.pdf
+[2] https://dspace.cvut.cz/bitstream/handle/10467/76831/F8-BP-2018-Beskyd-Filip-thesis.pdf?sequence=-1&isAllowed=y
+[3] http://cs229.stanford.edu/proj2017/final-reports/5233394.pdf
+[4] http://cs229.stanford.edu/proj2015/249_report.pdf
+[5] https://www.diva-portal.org/smash/get/diva2:829556/FULLTEXT01.pdf
+[6] https://www.researchgate.net/publication/313010005_Performance_of_Machine_Learning_Algorithms_in_Predicting_Game_Outcome_from_Drafts_in_Dota_2
+[7] https://www.researchgate.net/profile/Dmitry_Ignatov2/publication/321976496_Predicting_Winning_Team_and_Probabilistic_Ratings_in_Dota_2_and_Counter-Strike_Global_Offensive_Video_Games/links/5b13ea6f4585150a0a65084d/Predicting-Winning-Team-and-Probabilistic-Ratings-in-Dota-2-and-Counter-Strike-Global-Offensive-Video-Games.pdf?origin=publication_detail
+[8] https://pdfs.semanticscholar.org/7745/27ade8b86447c788a0d2b1618712c400e340.pdf
