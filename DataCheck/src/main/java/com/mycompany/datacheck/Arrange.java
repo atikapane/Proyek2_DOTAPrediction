@@ -21,24 +21,24 @@ import jxl.write.WriteException;
  * @author AtikaP
  */
 public class Arrange {
+
     private static final String EXCEL_FILE_LOCATION = "E:\\Kuliah\\Proyek_2\\DATAFULL.xls";
-         private static final String EXCEL_WRITE_LOCATION = "E:\\Kuliah\\Proyek_2\\TEMP.xls";
+    private static final String EXCEL_WRITE_LOCATION = "E:\\Kuliah\\Proyek_2\\TEMP.xls";
 
     public static void main(String[] args) throws WriteException {
-        int row=0, jumpMatch = 19, rowWrite = 0, colWrite, rowT1 = 6, rowT2 = 13, i, j, k, TeamT1=4, TeamT2=11, winner=2;
+        int row = 0, jumpMatch = 19, rowWrite = 0, colWrite, rowT1 = 6, rowT2 = 13, i, j, k, TeamT1 = 4, TeamT2 = 11, winner = 2;
         Workbook workbook = null;
         try {
 
             workbook = Workbook.getWorkbook(new File(EXCEL_FILE_LOCATION));
             Sheet sheet = workbook.getSheet(8);
             Cell cell1, T1, T2, Winner;
-            
-            
+
             WritableWorkbook myFirstWbook = null;
             myFirstWbook = Workbook.createWorkbook(new File(EXCEL_WRITE_LOCATION));
             // create an Excel sheet
             WritableSheet excelSheet = myFirstWbook.createSheet("2017", 0);
-            Label label ;
+            Label label;
             label = new Label(0, rowWrite, "name0");
             excelSheet.addCell(label);
             label = new Label(1, rowWrite, "name1");
@@ -92,43 +92,56 @@ public class Arrange {
             label = new Label(25, rowWrite, "WIN1");
             excelSheet.addCell(label);
             rowWrite++;
-            for(row = 0; row< 8778; row++){
-                for(i = 0; i<5; i++){
-                    for(j = 0; j<5; j++){
+            String str;
+            for (row = 0; row < 8778; row++) {
+                for (i = 0; i < 5; i++) {
+                    for (j = 0; j < 5; j++) {
                         colWrite = 0;
-                        for(k = 0; k<12; k++){
-                            cell1 = sheet.getCell(k+1, row+rowT1+i);
-                            label = new Label(colWrite, rowWrite, cell1.getContents());
+                        for (k = 0; k < 12; k++) {
+                            cell1 = sheet.getCell(k + 1, row + rowT1 + i);
+                            str = cell1.getContents();
+                            if (str.equals("-")) {
+                                str = "0";
+                            } else if (str.charAt(str.length()-1) == 'k') {
+                                str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
+                            }
+                            label = new Label(colWrite, rowWrite, str);
                             excelSheet.addCell(label);
                             colWrite++;
-                            cell1 = sheet.getCell(k+1, row+rowT2+j);
-                            label = new Label(colWrite, rowWrite, cell1.getContents());
+                            cell1 = sheet.getCell(k + 1, row + rowT2 + j);
+                            str = cell1.getContents();
+                            if (str.equals("-")) {
+                                str = "0";
+                            } else if (str.charAt(str.length()-1) == 'k') {
+                                str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
+                            }
+                            label = new Label(colWrite, rowWrite, str);
                             excelSheet.addCell(label);
                             colWrite++;
                         }
                         //Check winner
-                        T1 = sheet.getCell(0, row+TeamT1);
-                        T2 = sheet.getCell(0, row+TeamT2);
-                        Winner = sheet.getCell(0, row+winner);
-                        if(Winner.getContents().substring(0, Winner.getContents().length()-9).equals(T1.getContents())){
-                            label = new Label(colWrite, rowWrite,"1");
+                        T1 = sheet.getCell(0, row + TeamT1);
+                        T2 = sheet.getCell(0, row + TeamT2);
+                        Winner = sheet.getCell(0, row + winner);
+                        if (Winner.getContents().substring(0, Winner.getContents().length() - 9).equals(T1.getContents())) {
+                            label = new Label(colWrite, rowWrite, "1");
                             excelSheet.addCell(label);
                             colWrite++;
-                            label = new Label(colWrite, rowWrite,"0");
+                            label = new Label(colWrite, rowWrite, "0");
                             excelSheet.addCell(label);
                             colWrite++;
                         } else {
-                            label = new Label(colWrite, rowWrite,"0");
+                            label = new Label(colWrite, rowWrite, "0");
                             excelSheet.addCell(label);
                             colWrite++;
-                            label = new Label(colWrite, rowWrite,"1");
+                            label = new Label(colWrite, rowWrite, "1");
                             excelSheet.addCell(label);
                             colWrite++;
                         }
                         rowWrite++;
                     }
                 }
-                row+= jumpMatch;
+                row += jumpMatch;
             }
             myFirstWbook.write();
             if (myFirstWbook != null) {
@@ -152,5 +165,5 @@ public class Arrange {
             }
         }
     }
-   
+
 }
