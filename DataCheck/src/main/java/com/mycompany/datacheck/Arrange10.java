@@ -103,7 +103,8 @@ public class Arrange10 {
                         if (str.equals("-")) {
                             label = new Label(colWrite, rowWrite, "0");
                         } else if (str.endsWith("k")) {
-                            label = new Label(colWrite, rowWrite, str.);
+                            str = str.substring(0,str.length()-3)+str.substring(str.length()-2, str.length()-1)+"00";
+                            label = new Label(colWrite, rowWrite, str);
                         } else {
                             label = new Label(colWrite, rowWrite, str);
                         }
@@ -188,7 +189,8 @@ public class Arrange10 {
                         if (str.equals("-")) {
                             label = new Label(colWrite, rowWrite, "0");
                         } else if (str.endsWith("k")) {
-                            label = new Label(colWrite, rowWrite, str.);
+                            str = str.substring(0,str.length()-3)+str.substring(str.length()-2, str.length()-1)+"00";
+                            label = new Label(colWrite, rowWrite, str);
                         } else {
                             label = new Label(colWrite, rowWrite, str);
                         }
