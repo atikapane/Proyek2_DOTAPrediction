@@ -44,7 +44,7 @@ public class Arrange10 {
                 excelSheet.addCell(label);
             }
             for (i = 10; i < 20; i++) {
-                label = new Label(i, rowWrite, "Nam" + i % 10);
+                label = new Label(i, rowWrite, "Nama" + i % 10);
                 excelSheet.addCell(label);
             }
             for (i = 20; i < 30; i++) {
@@ -94,9 +94,10 @@ public class Arrange10 {
 
             rowWrite++;
             String str = new String();
-            for (row = 0; row < 8778; row++) {
+            for (row = 0; row < 8778; row+=18) {
                 colWrite = 0;
                 for (k = 0; k < 13; k++) {
+                    
                     for (j = 0; j < 5; j++) {
                         cell1 = sheet.getCell(k, row + rowT1 + j);
                         str = cell1.getContents();
@@ -106,11 +107,10 @@ public class Arrange10 {
                             str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
                         }
                         label = new Label(colWrite, rowWrite, str);
-
-                        label = new Label(colWrite, rowWrite, str);
                         excelSheet.addCell(label);
                         colWrite++;
                     }
+                    
                     for (j = 0; j < 5; j++) {
                         cell1 = sheet.getCell(k, row + rowT2 + j);
                         str = cell1.getContents();
@@ -120,11 +120,10 @@ public class Arrange10 {
                             str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
                         }
                         label = new Label(colWrite, rowWrite, str);
-
-                        label = new Label(colWrite, rowWrite, str);
                         excelSheet.addCell(label);
                         colWrite++;
                     }
+                    
                     //Check winner
                     T1 = sheet.getCell(0, row + TeamT1);
                     T2 = sheet.getCell(0, row + TeamT2);
