@@ -95,8 +95,8 @@ public class Arrange10 {
             rowWrite++;
             String str = new String();
             for (row = 0; row < 8778; row++) {
+                colWrite = 0;
                 for (k = 0; k < 13; k++) {
-                    colWrite = 0;
                     for (j = 0; j < 5; j++) {
                         cell1 = sheet.getCell(k, row + rowT1 + j);
                         str = cell1.getContents();
