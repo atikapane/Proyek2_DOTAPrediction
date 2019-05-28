@@ -95,8 +95,8 @@ public class Arrange10 {
             rowWrite++;
             String str = new String();
             for (row = 0; row < 8778; row++) {
-                colWrite = 0;
                 for (k = 0; k < 13; k++) {
+                    colWrite = 0;
                     for (j = 0; j < 5; j++) {
                         cell1 = sheet.getCell(k, row + rowT1 + j);
                         str = cell1.getContents();
@@ -112,7 +112,8 @@ public class Arrange10 {
                         colWrite++;
                     }
                     for (j = 0; j < 5; j++) {
-                        cell1 = sheet.getCell(k, row + rowT1 + j);
+                        colWrite = 0;
+                        cell1 = sheet.getCell(k, row + rowT2 + j);
                         str = cell1.getContents();
                         if (str.equals("-")) {
                             str = "0";
@@ -125,111 +126,99 @@ public class Arrange10 {
                         excelSheet.addCell(label);
                         colWrite++;
                     }
-                }
                     //Check winner
-                T1 = sheet.getCell(0, row + TeamT1);
-                T2 = sheet.getCell(0, row + TeamT2);
-                Winner = sheet.getCell(0, row + winner);
-                if (Winner.getContents().substring(0, Winner.getContents().length() - 9).equals(T1.getContents())) {
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                } else {
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "0");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
-                    label = new Label(colWrite, rowWrite, "1");
-                    excelSheet.addCell(label);
-                    colWrite++;
+                    T1 = sheet.getCell(0, row + TeamT1);
+                    T2 = sheet.getCell(0, row + TeamT2);
+                    Winner = sheet.getCell(0, row + winner);
+                    if (Winner.getContents().substring(0, Winner.getContents().length() - 9).equals(T1.getContents())) {
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                    } else {
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "0");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                        label = new Label(colWrite, rowWrite, "1");
+                        excelSheet.addCell(label);
+                        colWrite++;
+                    }
+                    rowWrite++;
                 }
-                rowWrite++;
+
+                row += jumpMatch;
+            }
+            myFirstWbook.write();
+            if (myFirstWbook != null) {
+                try {
+                    myFirstWbook.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (WriteException e) {
+                    e.printStackTrace();
+                }
             }
 
-            row += jumpMatch;
-        }
-        myFirstWbook.write();
-        if (myFirstWbook != null) {
-            try {
-                myFirstWbook.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (WriteException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-    catch (IOException e
-
-    
-        ) {
+        } catch (IOException e) {
             e.printStackTrace();
-    }
-    catch (BiffException e
-
-    
-        ) {
+        } catch (BiffException e) {
             e.printStackTrace();
-    }
-
-    
-        finally {
+        } finally {
 
             if (workbook != null) {
-            workbook.close();
+                workbook.close();
+            }
         }
     }
-}
 
 }
