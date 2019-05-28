@@ -112,7 +112,6 @@ public class Arrange10 {
                         colWrite++;
                     }
                     for (j = 0; j < 5; j++) {
-                        colWrite = 0;
                         cell1 = sheet.getCell(k, row + rowT2 + j);
                         str = cell1.getContents();
                         if (str.equals("-")) {
@@ -193,8 +192,8 @@ public class Arrange10 {
                         excelSheet.addCell(label);
                         colWrite++;
                     }
-                    rowWrite++;
                 }
+                rowWrite++;
 
                 row += jumpMatch;
             }
