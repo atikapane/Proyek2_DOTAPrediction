@@ -101,13 +101,13 @@ public class Arrange10 {
                         cell1 = sheet.getCell(k, row + rowT1 + j);
                         str = cell1.getContents();
                         if (str.equals("-")) {
-                            label = new Label(colWrite, rowWrite, "0");
-                        } else if (str.endsWith("k")) {
-                            str = str.substring(0,str.length()-3)+str.substring(str.length()-2, str.length()-1)+"00";
-                            label = new Label(colWrite, rowWrite, str);
-                        } else {
-                            label = new Label(colWrite, rowWrite, str);
+                            str = "0";
+                        } else if (str.charAt(str.length() - 1) == 'k') {
+                            str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
                         }
+                        label = new Label(colWrite, rowWrite, str);
+
+                        label = new Label(colWrite, rowWrite, str);
                         excelSheet.addCell(label);
                         colWrite++;
                     }
@@ -187,13 +187,11 @@ public class Arrange10 {
                         cell1 = sheet.getCell(k, row + rowT2 + j);
                         str = cell1.getContents();
                         if (str.equals("-")) {
-                            label = new Label(colWrite, rowWrite, "0");
-                        } else if (str.endsWith("k")) {
-                            str = str.substring(0,str.length()-3)+str.substring(str.length()-2, str.length()-1)+"00";
-                            label = new Label(colWrite, rowWrite, str);
-                        } else {
-                            label = new Label(colWrite, rowWrite, str);
+                            str = "0";
+                        } else if (str.charAt(str.length() - 1) == 'k') {
+                            str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
                         }
+                        label = new Label(colWrite, rowWrite, str);
                         excelSheet.addCell(label);
                         colWrite++;
                     }
