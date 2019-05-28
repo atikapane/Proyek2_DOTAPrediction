@@ -22,20 +22,21 @@ import jxl.write.WriteException;
  */
 public class Arrange10 {
 
-    private static final String EXCEL_FILE_LOCATION = "E:\\Kuliah\\Proyek_2\\DATAFULL.xls";
-    private static final String EXCEL_WRITE_LOCATION = "E:\\Kuliah\\Proyek_2\\TEMP.xls";
+    private static final String EXCEL_FILE_LOCATION = "D:\\Tugas\\Proyek2\\MENTAHANBERSIH.xls";
+    private static final String EXCEL_WRITE_LOCATION = "D:\\Tugas\\Proyek2\\2017.xls";
 
     public static void main(String[] args) throws WriteException {
-        int row = 0, jumpMatch = 19, rowWrite = 0, colWrite, rowT1 = 6, rowT2 = 13, i, j, k, TeamT1 = 4, TeamT2 = 11, winner = 2;
+        int row = 0, jumpMatch = 19, rowWrite = 0, colWrite, rowT1 = 6, rowT2 = 13, i, j, k, TeamT1 = 4, TeamT2 = 11, winner = 2, maxRow = 0;
         Workbook workbook = null;
         try {
 
             workbook = Workbook.getWorkbook(new File(EXCEL_FILE_LOCATION));
-            Sheet sheet = workbook.getSheet(8);
+            Sheet sheet = workbook.getSheet(7);
             Cell cell1, T1, T2, Winner;
 
             WritableWorkbook myFirstWbook = null;
             myFirstWbook = Workbook.createWorkbook(new File(EXCEL_WRITE_LOCATION));
+            maxRow = 10838;
             // create an Excel sheet
             WritableSheet excelSheet = myFirstWbook.createSheet("2017", 0);
             Label label;
@@ -91,23 +92,27 @@ public class Arrange10 {
                 label = new Label(i, rowWrite, "BLD" + i % 10);
                 excelSheet.addCell(label);
             }
+            for (i = 130; i < 140; i++) {
+                label = new Label(i, rowWrite, "Win" + i % 10);
+                excelSheet.addCell(label);
+            }
 
             rowWrite++;
             String str = new String();
-            for (row = 0; row < 8778; row += 20) {
+            for (row = 0; row < maxRow; row += 20) {
                 colWrite = 0;
-                for (k = 0; k < 12; k++) {
+                for (k = 0; k < 13; k++) {
 
                     for (j = 0; j < 5; j++) {
                         cell1 = sheet.getCell(k, row + rowT1 + j);
-                        
+
                         str = cell1.getContents();
                         if (str.equals("-")) {
                             str = "0";
                         } else if (str.charAt(str.length() - 1) == 'k') {
                             str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
                         }
-                        
+
                         label = new Label(colWrite, rowWrite, str);
                         excelSheet.addCell(label);
                         colWrite++;
@@ -115,14 +120,14 @@ public class Arrange10 {
 
                     for (j = 0; j < 5; j++) {
                         cell1 = sheet.getCell(k, row + rowT2 + j);
-                        
+
                         str = cell1.getContents();
                         if (str.equals("-")) {
                             str = "0";
                         } else if (str.charAt(str.length() - 1) == 'k') {
                             str = str.substring(0, str.length() - 3) + str.substring(str.length() - 2, str.length() - 1) + "00";
                         }
-                        
+
                         label = new Label(colWrite, rowWrite, str);
                         excelSheet.addCell(label);
                         colWrite++;
